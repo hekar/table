@@ -42,13 +42,13 @@
 				 * method will handle initialization
 				 */
 				if (this.isAttached) {
-					this.async(this._updateSticky.bind(this, !disabled), 1);
+					this._updateSticky.bind(this, !disabled);
 				}
 			},
 			attached: function() {
 				if (!this.disabled) {
 					// Async is used to ensure the call occurs after paint
-					this.async(this._updateSticky.bind(this, true), 1);
+					this._updateSticky.bind(this, true);
 				}
 			}
 		});

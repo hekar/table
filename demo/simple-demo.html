@@ -43,16 +43,13 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
-					<td><span> </span></td>
-					<td><span> </span></td>
-					<td><span> </span></td>
-				</tr>
-				<tr>
-					<td><span> </span></td>
-					<td><span> </span></td>
-					<td><span> </span></td>
-				</tr>
+				<template is="dom-repeat" items="[[testItems]]">
+					<tr>
+						<td><span> </span></td>
+						<td><span> </span></td>
+						<td><span> </span></td>
+					</tr>
+				</template>
 				</tbody>
 			</table>
 		</div>
@@ -239,7 +236,17 @@
 	</template>
 	<script>
 		Polymer({
-			is: 'simple-demo'
+			is: 'simple-demo',
+			ready: function() {
+				function makeItem(i) {
+					return { name: i + '. Name' };
+				}
+
+				this.testItems = [
+					makeItem(1),
+					makeItem(2)
+				];
+			}
 		});
 	</script>
 </dom-module>
